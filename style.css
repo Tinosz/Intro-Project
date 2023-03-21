@@ -1,0 +1,8 @@
+@font-face {
+    font-family: pixelFont;
+    src: url("Fonts/ccoverbyteoffregular.otf") format("opentype");
+}
+
+.pixelFont{
+    font-family: pixelFont;
+}
