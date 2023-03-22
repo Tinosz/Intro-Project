@@ -1,3 +1,20 @@
+body {
+    background-color: #38b6ff;
+}
+
+#background {
+    background-image: url(Aset/background-1.png);
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
 @font-face {
     font-family: pixelFont;
     src: url("Fonts/ccoverbyteoffregular.otf") format("opentype");
@@ -6,6 +23,18 @@
 @font-face {
     font-family: smallPixelFont;
     src: url("Fonts/Minecraft.ttf") format("truetype");
+}
+
+.fadeInOut {
+    opacity: 0;
+    animation: fadeInNOut 2s infinite;
+}
+
+@keyframes fadeInNOut {
+    0% {opacity: 0.3;}
+    50% {opacity: 1;}
+    100% {opacity: 0.3;}
+    
 }
 
 .pixelFont{
@@ -27,11 +56,31 @@
     margin-left: 100px;
 }
 
+#menuKittenIdle{
+    width: 400px;
+    margin-top: 30px;
+    margin-right: 100px;
+    margin-left: 100px;
+
+}
+
+#startYourJourney {
+    margin-top: 600px;
+}
+
 #startButton {
     width: 250px;
     height: 100px;
     padding: 3px;
     font-size: 25px;
+}
+
+#rightButton {
+    z-index: 4;
+}
+
+#leftButton {
+    z-index: 4;
 }
 
 .sliderButton{
@@ -63,4 +112,35 @@
     0% {transform: scale(1); }
     50% {transform: scale(1.2); }
     100% {transform: scale(1); }
+}
+
+.slider {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    left: 50%;
+}
+
+.character {
+    position: absolute;
+    opacity: 0.5;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.character.selected {
+    opacity: 1;
+}
+
+.character.left {
+    transform: translateX(-50%) scale(0.5);
+}
+
+.character.right {
+    transform: translateX(-50%) scale(0.5);
+}
+
+.character.center {
+    transform: translate(-50%);
+    z-index: 1;
 }

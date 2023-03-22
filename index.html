@@ -13,28 +13,42 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="background"></div>
     <div class="text-center menu">
-      <h1 class="pixelFont 1Show">Simulator</h1>
-      <h1 class="pixelFont 2Show">-Choose your Character-</h1>
+      <h1 class="pixelFont 2Show text-white">-Choose your Character-</h1>
       <div
-        class="d-flex flex-column justify-content-center align-items-center"
-        style="height: 500px"
+      class="d-flex flex-column justify-content-center align-items-center"
+      style="height: 500px"
       >
-        <img class="1Show" src="Aset/pentol-hi.gif" />
+      <div class="container 1Show px-5 border border-primary rounded-4 bg-white" id="startYourJourney">
+        <div class="p-3">
+          <h1 class="pixelFont">Start your Journey</h1>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h1 class="smallPixelFont 1Show fadeInOut">-Click anywhere to choose a Character-</h1>
+      </div>
+      
         <div class="row align-items-center">
-          <div class="col">
+          <div class="col"  id="leftButton">
             <img class="2Show sliderButton reverseItemJiggle" src="Aset/SliderButton_Left.png" />
           </div>
           <div class="col">
-            <img class="2Show itemJiggle" id="menuPentolIdle" src="Aset/pentol-idle.gif"/>
+            <div class="slider">
+              <div class="character" data-index="0">
+                <img class="2Show itemJiggle" id="menuPentolIdle" src="Aset/pentol/pentol-idle.gif"/>
+              </div>
+              <div class="character" data-index="1">
+                <img class="2Show" id="menuKittenIdle" src="Aset/kitten/kitten-idle.gif" />
+              </div>
+            </div>
           </div>
-          <div class="col">
-            <img class="2Show sliderButton reverseItemJiggle" src="Aset/SliderButton_Right.png" />
+          <div class="col" id="rightButton">
+            <img class="2Show sliderButton reverseItemJiggle"  src="Aset/SliderButton_Right.png" />
           </div>
         </div>
       </div>
-      <div class="mt-auto">
-        <h1 class="pixelFont 1Show">-Click anywhere to choose a Character-</h1>
+      <div class="mt-2">
         <button
           onclick="location.href='menuGame.html'"
           class="mt-1 2Show smallPixelFont reverseItemJiggle"
@@ -58,6 +72,22 @@
           
           $('.1Show').hide();
           $('.2Show').fadeIn();
+          $('#background').css('opacity', '0');
+        });
+
+        var index = 0;
+        var characters = $('.character');
+
+        $(characters[index]).addClass('selected center');
+        $('#leftButton').click(function() {
+          $(characters[index]).removeClass('selected center').addClass('right');
+          index = (index - 1 + characters.length) % characters.length;
+          $(characters[index]).addClass('selected center').removeClass('left');
+        });
+        $('#rightButton').click(function(){
+          $(characters).removeClass('selected center').addClass('left');
+          index = (index + 1 ) % characters.length;
+          $(characters[index]).addClass('selected center').removeClass('right');
         });
       });
     </script>
