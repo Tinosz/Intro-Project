@@ -3,13 +3,68 @@
     src: url("Fonts/ccoverbyteoffregular.otf") format("opentype");
 }
 
+@font-face {
+    font-family: smallPixelFont;
+    src: url("Fonts/Minecraft.ttf") format("truetype");
+}
+
 .pixelFont{
     font-family: pixelFont;
+}
+
+.smallPixelFont {
+    font-family: smallPixelFont;
 }
 
 .menu{
     margin-top: 100px;
 }
+
+#menuPentolIdle{
+    width: 300px;
+    margin-top: 30px;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+#startButton {
+    width: 250px;
+    height: 100px;
+    padding: 3px;
+    font-size: 25px;
+}
+
+.sliderButton{
+    width: 150px;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.reverseItemJiggle:active {
+    animation: reverseJiggle 0.3s ;
+}
+
+@keyframes reverseJiggle {
+    0% {transform: scale(1); }
+    50% {transform: scale(0.7);}
+    100%{transform: scale(1);}
+
+}
+
+.sliderButton:hover {
+    opacity: 0.5;
+}
+
+.itemJiggle{
+    animation: jiggle 0.4s ease-out;
+}
+
+@keyframes jiggle {
+    0% {transform: scale(1); }
+    50% {transform: scale(1.2); }
+    100% {transform: scale(1); }
+}
+
 
 .row {
   display: flex;
