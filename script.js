@@ -14,5 +14,6 @@ progressBars.forEach(progressBar => {
     if (progressValue === 0) {
       clearInterval(interval);
     }
-  }, 800);
+  }, 3500);
 });
+
