@@ -10,3 +10,37 @@
 .menu{
     margin-top: 100px;
 }
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#image {
+    width: 10px;
+    height: 10px;
+}
+.progress-bar {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  height: 15px;
+  margin: 15px 15px;
+  overflow: hidden;
+  width: 50%;
+}
+
+.progress {
+  background-color: #4CAF50;
+  height: 100%;
+  width: 100%;
+  transition: width 1s linear;
+}
+
+.value {
+  color: #000;
+  font-size: 12px;
+  position: absolute;
+  top: -20px;
+  right: 0;
+}
