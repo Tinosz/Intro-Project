@@ -6,7 +6,6 @@ progressBars.forEach(progressBar => {
   const interval = setInterval(() => {
     progressValue--;
     progressBar.style.width = `${progressValue}%`;
-    progressBar.textContent = `${progressValue}%`;
 
     if (progressValue <= 20) {
       progressBar.style.backgroundColor = 'red';
