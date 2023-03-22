@@ -21,12 +21,24 @@
         style="height: 500px"
       >
         <img class="1Show" src="Aset/pentol-hi.gif" />
+        <div class="row align-items-center">
+          <div class="col">
+            <img class="2Show sliderButton reverseItemJiggle" src="Aset/SliderButton_Left.png" />
+          </div>
+          <div class="col">
+            <img class="2Show itemJiggle" id="menuPentolIdle" src="Aset/pentol-idle.gif"/>
+          </div>
+          <div class="col">
+            <img class="2Show sliderButton reverseItemJiggle" src="Aset/SliderButton_Right.png" />
+          </div>
+        </div>
       </div>
       <div class="mt-auto">
         <h1 class="pixelFont 1Show">-Click anywhere to choose a Character-</h1>
         <button
           onclick="location.href='menuGame.html'"
-          class="mt-1 2Show"
+          class="mt-1 2Show smallPixelFont reverseItemJiggle"
+          id="startButton"
         >
           Start Game
         </button>
@@ -45,7 +57,7 @@
         $(document).click(function() {
           
           $('.1Show').hide();
-          $('.2Show').show();
+          $('.2Show').fadeIn();
         });
       });
     </script>
