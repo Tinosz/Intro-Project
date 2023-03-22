@@ -1,7 +1,8 @@
 # Intro Project
 1. Character Slider
-2. Bar (Makan, Toilet, tidur, kesenangan)
+2. Tombol (Makan, Toilet, tidur, kesenangan)
 3. Gerakan up down left right
+5. menyambungkan karakter ke dalam menuGame
 
 
 Character Asset Links:
