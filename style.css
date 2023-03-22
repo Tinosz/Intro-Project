@@ -133,6 +133,7 @@ body {
     position: absolute;
     opacity: 0.5;
     transition: transform 0.5s, opacity 0.5s;
+    transform: translate(-50%, -10%) scale(0.5);
 }
 
 .character.selected {
