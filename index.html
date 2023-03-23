@@ -85,7 +85,7 @@
           $(characters[index]).addClass('selected center').removeClass('left');
         });
         $('#rightButton').click(function(){
-          $(characters).removeClass('selected center').addClass('left');
+          $(characters[index]).removeClass('selected center').addClass('left');
           index = (index + 1 ) % characters.length;
           $(characters[index]).addClass('selected center').removeClass('right');
         });
