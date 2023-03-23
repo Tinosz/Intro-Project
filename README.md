@@ -7,7 +7,7 @@ INGAT:
 2. Tombol (Makan, Toilet, tidur, kesenangan)
 3. Gerakan up down left right
 5. menyambungkan karakter ke dalam menuGame
-
+abc
 
 Character Asset Links:
 https://getstickerpack.com/stickers/quby-pentol-gif (Pentol)
