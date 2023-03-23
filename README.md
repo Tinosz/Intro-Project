@@ -8,6 +8,8 @@ INGAT:
 3. Gerakan up down left right
 5. menyambungkan karakter ke dalam menuGame
 
+Projek Requirement:
+https://drive.google.com/file/d/1mq8yyZ1jHotVFf39uA-a798yvIr8ptaV/view?usp=sharing
 
 Character Asset Links:
 https://getstickerpack.com/stickers/quby-pentol-gif (Pentol)
