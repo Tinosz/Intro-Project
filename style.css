@@ -25,6 +25,11 @@ body {
     src: url("Fonts/Minecraft.ttf") format("truetype");
 }
 
+.clickAnywhere{
+    background-color: white;
+    padding: 10px;
+}
+
 .fadeInOut {
     opacity: 0;
     animation: fadeInNOut 2s infinite;
@@ -104,6 +109,11 @@ body {
     opacity: 0.5;
 }
 
+#playerName{
+    padding: 10px;
+    text-align: center;
+}
+
 .itemJiggle{
     animation: jiggle 0.4s ease-out;
 }
@@ -114,18 +124,11 @@ body {
     100% {transform: scale(1); }
 }
 
-.value {
-  color: #000;
-  font-size: 12px;
-  position: absolute;
-  top: -20px;
-  right: 0;
-}
 .slider {
     position: relative;
     width: 400px;
     height: 400px;
-    margin: 0 auto;
+    margin: 10 auto;
     left: 50%;
 }
 
@@ -152,3 +155,31 @@ body {
     transform: translate(-50%);
     z-index: 1;
 }
+  
+@media (max-width: 767px) {
+    .menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #leftButton {
+      order: 2;
+    }
+  
+    #rightButton {
+      order: 3;
+    }
+
+    #playerName{
+        display: flex;
+        width: 300px;
+    }
+    .sliderButton{
+        width: 100px;
+    }
+    #startButton{
+        width: 200px;
+    }
+  }
