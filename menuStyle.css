@@ -1,8 +1,68 @@
+#bar {
+  height: 100vh;
+  background-color: aliceblue;
+}
+
 .progress{
-    background-color: green;
-  }
+  background-color: green;
+}
+
+.p {
+  background-color: grey;
+  border-radius: 10px;
+}
+
+#buttonbox{
+  max-width: 900px;
+  margin: auto;
+}
+
+.button{
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: black;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  background-color: #C8A2C8;
+  font-size: 20px;
+  font-family: Verdana;
+}
   
-  .p {
-    background-color: grey;
-    border-radius: 10px;
-  }
+.button:hover {
+  background-color: lightcoral; /* Green */
+  color: white;
+  transition: 300ms;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  transform: scale(1.02);
+}
+
+.button:active {
+  transform: scale(0.99);
+}
+
+#objectbox{
+  position: relative;
+}
+
+#object1 {
+  margin-top: 30px;
+  max-width: 1000px;
+  max-height: 400px;
+  float: center;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+#layer{
+  float: center;
+}
+
+#object2{
+  position: absolute;
+  top: 150px;
+  left: 160px;
+  transform: translateX("50%") ;
+}
+
