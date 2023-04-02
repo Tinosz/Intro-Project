@@ -67,6 +67,8 @@ sleepButton.addEventListener("click", () => {
 });
 
 
+
+
 //energy bar
 /*let interval1 = setInterval(() => {
   let progressValue = parseFloat(progressBar1.style.width) || 100.0;
