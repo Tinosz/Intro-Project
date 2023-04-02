@@ -32,7 +32,7 @@
               <div class="col progress-bar" style="margin-top: 10px">
                 <img src="Aset/158420.png" width="40px" height="40px">
                   <div class="p">
-                    <div class="progress" id="energy"></div>
+                    <div class="progress" id="fun"></div>
                   </div>
               </div>
 
@@ -61,7 +61,7 @@
 
             <div id="buttonbox">
               <div class="row" style="margin-top: 40px">
-                <button type="button" class="col button" id="obatButton">Obat</button>
+                <button type="button" class="col button" id="obatButton">Use Medicine (<span id="healCounter">10</span>)</button>
                 <button type="button" class="col button" id="playButton">Play</button>
                 <div class="w-100"></div>
                 <button type="button" class="col button" id="eatButton">Eat</button>
@@ -83,7 +83,6 @@
     if (scriptFile) {
       $.getScript(scriptFile);
     }
-    // rest of your code here
     var playerName = localStorage.getItem('playerName');
     $('#playerName').text(playerName);
   });

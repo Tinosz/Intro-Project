@@ -1,9 +1,178 @@
-const progressBar1 = document.getElementById('energy');
+/*const progressBar1 = document.getElementById('energy');
 const progressBar2 = document.getElementById('food');
 const progressBar3 = document.getElementById('sleep');
-const progressBar4 = document.getElementById('health');
+const progressBar4 = document.getElementById('health');*/
 
-function startProgressBar(progressBar, decreasingFlag, decrementValue, threshold, alertMessage, barAmount, resetValue = 100) {
+let health = 100;
+let healthBar = document.querySelector('#health');
+let heal = document.querySelector('#obatButton');
+let healCounter = 10;
+let nullHP = 0;
+let healCounterElem = document.querySelector('#healCounter');
+
+let healthFlag = true;
+let healthAlertShown = false;
+let healthDecrement = false;
+
+let healthInterval = setInterval(() => {
+  if(healthFlag && healthDecrement){
+    health -= 2;
+    healthBar.style.width = `${health}%`;
+  }
+
+  if(health <= 20){
+    alert("I'm feeling sick");
+    healthBar.style.backgroundColor = 'red';
+  }else{
+    hungerBar.style.backgroundColor = 'green';
+  }
+
+  if(health<=0 && !healthAlertShown){
+    alert("Bye Bye :(");
+    clearInterval(healthInterval);
+  }
+}, 1000); //fungsi berjalan setiap detik
+
+heal.addEventListener('click', () =>{
+  if(healCounter > nullHP){
+    healthFlag = true;
+    healthAlertShown = false;
+    health += 10;
+    if(healthDecrement){
+      healCounter--;
+      healCounterElem.textContent = healCounter;
+    }
+    if(health > 100){
+      health = 100;
+    }
+    healthBar.style.width = `${health}%`;
+  }
+  if(healCounter <= nullHP){
+    heal.disabled = true;
+  }
+});
+
+//emotion bar
+let fun = 100;
+let funBar = document.querySelector('#fun');
+let playBtn = document.querySelector('#playButton');
+
+let funFlag = true;
+let playAlertShown = false;
+
+let funInterval= setInterval(() => {
+  if(funFlag){
+    fun -= 0.5;
+    funBar.style.width = `${fun}%`;
+  }
+
+  if(fun <= 20){
+    funBar.style.backgroundColor = 'red';
+  } else{
+    funBar.style.backgroundColor = 'green';
+  }
+
+  if(fun<=0 && !playAlertShown){
+    funFlag = false;
+    alert("I'm bored...")
+    playAlertShown = true;
+  }
+}, 1000); //fungsi berjalan setiap detik
+
+playBtn.addEventListener('click', () =>{
+  funFlag = true;
+  playAlertShown = false;
+  fun += 50;
+  if(fun > 100){
+    fun = 100;
+  }
+  funBar.style.width = `${fun}%`;
+});
+
+//hunger bar
+let hunger = 100;
+let hungerBar = document.querySelector('#food');
+let eatBtn = document.querySelector('#eatButton');
+
+let hungerFlag = true;
+let hungerAlertShown = false;
+
+let hungerInterval = setInterval(() => {
+  if(hungerFlag){
+    healthDecrement = false;
+    hunger -= 1;
+    hungerBar.style.width = `${hunger}%`;
+  }
+
+  if(hunger <= 20){
+    hungerBar.style.backgroundColor = 'red';
+  } else{
+    hungerBar.style.backgroundColor = 'green';
+  }
+
+  if(hunger<=0 && !hungerAlertShown){
+    hungerFlag = false;
+    alert("I'm feeling hungry...")
+    hungerAlertShown = true;
+    healthDecrement = true;
+  }
+}, 1000); //fungsi berjalan setiap detik
+
+eatBtn.addEventListener('click', () =>{
+  hungerFlag = true;
+  hungerAlertShown = false;
+  hunger += 10;
+  if(hunger > 100){
+    hunger = 100;
+  }
+  hungerBar.style.width = `${hunger}%`;
+});
+
+//sleep bar
+let sleep = 100;
+let sleepBar = document.querySelector('#sleep');
+let sleepBtn = document.querySelector('#sleepButton');
+
+let sleepFlag = true;
+let sleepAlertShown = false;
+
+let sleepInterval= setInterval(() => {
+  if(sleepFlag){
+    sleep -= 1;
+    sleepBar.style.width = `${sleep}%`;
+  }
+
+  if(sleep <= 20){
+    sleepBar.style.backgroundColor = 'red';
+  } else{
+    sleepBar.style.backgroundColor = 'green';
+  }
+
+  if(sleep<=0 && !sleepAlertShown){
+    sleepFlag = false;
+    alert("I'm bored...")
+    sleepAlertShown = true;
+  }
+}, 1000); //fungsi berjalan setiap detik
+
+sleepBtn.addEventListener('click', () =>{
+  sleepFlag = true;
+  sleepAlertShown = false;
+  if(hunger <= 50){ //kondisi tidur
+    sleep += 35;
+  }else{
+    sleep += 100;
+  }
+  
+  if(sleep > 100){
+    sleep = 100;
+  }
+  sleepBar.style.width = `${sleep}%`;
+});
+
+
+
+/*function startProgressBar(progressBar, decreasingFlag, decrementValue, threshold, alertMessage, barAmount, resetValue = 100) {
   let interval = setInterval(() => {
     let progressValue = parseFloat(progressBar.style.width) || 100.0;
     if (decreasingFlag) {
@@ -64,7 +233,7 @@ let interval3 = startProgressBar(progressBar3, true, 1 , 20.0, "i'm feeling ssle
 let sleepButton = document.getElementById("sleepButton");
 sleepButton.addEventListener("click", () => {
   interval3.reset();
-});
+});*/
 
 var pentolIdle = document.getElementById("object2");
 pentolIdle.src = "Aset/pentol/pentol-idle.gif";
