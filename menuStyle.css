@@ -50,17 +50,15 @@
 }
 
 #objectbox{
-  position: relative;
-}
-
-#object1 {
-  margin-top: 30px;
-  max-width: 1000px;
-  max-height: 400px;
-  float: center;
-  width: 100%;
-  height: auto;
-  position: relative;
+  background-image: url("Aset/hallway.jpeg");
+  background-size: contain;
+  width: 800px;
+  height: 1000px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  justify-content: center;
+  background-repeat: no-repeat;
 }
 
 #layer{
@@ -68,9 +66,7 @@
 }
 
 #object2{
-  position: absolute;
-  top: 150px;
-  left: 160px;
+  margin: auto;
   transform: translateX("50%") ;
 }
 
