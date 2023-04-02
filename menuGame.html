@@ -55,7 +55,7 @@
             <div id="objectbox">
               <img id="object1" src="Aset/hallway.jpeg">
               <div id="clock" class="hour"></div>
-              <img id="object2" src="Aset/pentol/pentol-idle.gif">
+              <img id="object2" src="">
             </div>
             
 
@@ -75,11 +75,18 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <!--<script src="script.js"></script>-->
     <script src="scriptTime1.js"></script>
     <script>
-      var playerName = localStorage.getItem('playerName');
-      $('#playerName').text(playerName);
+       $(document).ready(function() {
+    var scriptFile = localStorage.getItem('scriptFile');
+    if (scriptFile) {
+      $.getScript(scriptFile);
+    }
+    // rest of your code here
+    var playerName = localStorage.getItem('playerName');
+    $('#playerName').text(playerName);
+  });
     </script>
   </body>
 </html>

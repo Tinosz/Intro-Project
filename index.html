@@ -67,11 +67,6 @@
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      function startGame(){
-        var playerName = $('#playerName').val();
-        localStorage.setItem('playerName', playerName);
-        location.href = 'menuGame.html';
-      }
       $(document).ready(function() {
         $('.2Show').hide();
 
@@ -83,21 +78,45 @@
         });
 
         var index = 0;
-        var characters = $('.character');
+  var characters = $('.character');
 
-        $(characters[index]).addClass('selected center');
-        $('#leftButton').click(function() {
-          $(characters[index]).removeClass('selected center').addClass('right');
-          index = (index - 1 + characters.length) % characters.length;
-          $(characters[index]).addClass('selected center').removeClass('left');
-        });
-        $('#rightButton').click(function(){
-          $(characters[index]).removeClass('selected center').addClass('left');
-          index = (index + 1 ) % characters.length;
-          $(characters[index]).addClass('selected center').removeClass('right');
-        });
-        
+  $(characters[index]).addClass('selected center');
+
+  $('#leftButton').click(function() {
+    $(characters[index]).removeClass('selected center').addClass('right');
+    index = (index - 1 + characters.length) % characters.length;
+    $(characters[index]).addClass('selected center').removeClass('left');
+  });
+
+  $('#rightButton').click(function() {
+    $(characters[index]).removeClass('selected center').addClass('left');
+    index = (index + 1) % characters.length;
+    $(characters[index]).addClass('selected center').removeClass('right');
+  });
+
+  characters.each(function(i) {
+    $(this).attr('data-index', i);
+  });
       });
+      
+      function startGame() {
+      var playerName = $('#playerName').val();
+      localStorage.setItem('playerName', playerName);
+
+      var selectedCharacterIndex = $('.character.selected').data('index');
+      localStorage.setItem('selectedCharacterIndex', selectedCharacterIndex);
+
+      var scriptFile;
+      if (selectedCharacterIndex === 0) {
+        scriptFile = 'script.js';
+      } else if (selectedCharacterIndex === 1) {
+        scriptFile = 'script2.js';
+      }
+      localStorage.setItem('scriptFile', scriptFile);
+
+      location.href = 'menuGame.html';
+    }
+
     </script>
   </body>
 </html>

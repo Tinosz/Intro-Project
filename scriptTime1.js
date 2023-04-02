@@ -22,6 +22,6 @@ function gameClock() {
   }
   
   var temp = 1;
-  var currTime = 7100; 
+  var currTime = 7200; 
   gameClock();
   

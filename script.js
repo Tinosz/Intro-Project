@@ -66,8 +66,8 @@ sleepButton.addEventListener("click", () => {
   interval3.reset();
 });
 
-
-
+var pentolIdle = document.getElementById("object2");
+pentolIdle.src = "Aset/pentol/pentol-idle.gif";
 
 //energy bar
 /*let interval1 = setInterval(() => {
