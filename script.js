@@ -3,8 +3,72 @@ const progressBar2 = document.getElementById('food');
 const progressBar3 = document.getElementById('sleep');
 const progressBar4 = document.getElementById('health');
 
+function startProgressBar(progressBar, decreasingFlag, decrementValue, threshold, alertMessage, barAmount, resetValue = 100) {
+  let interval = setInterval(() => {
+    let progressValue = parseFloat(progressBar.style.width) || 100.0;
+    if (decreasingFlag) {
+      progressValue -= decrementValue;
+      progressBar.style.width = `${progressValue}%`;
+    }
+
+    if (progressValue <= threshold) {
+      progressBar.style.backgroundColor = 'red';
+    }
+
+    if (progressValue <= 0) {
+      decreasingFlag = false;
+      alert(alertMessage);
+    }
+  }, barAmount);
+
+  return {
+    add: (newWidth) => {
+      let progressValue = parseFloat(progressBar.style.width) || 100.0;
+      let currentWidth = parseFloat(progressBar.style.width);
+      let updatedWidth = currentWidth + newWidth;
+      if (updatedWidth > 100) {
+        updatedWidth = 100;
+      }
+      progressBar.style.width = `${updatedWidth}%`;
+      progressBar.style.backgroundColor = 'green';
+    
+      if (progressValue <= threshold) {
+        progressBar.style.backgroundColor = 'red';
+      }
+    
+      if (progressValue <= 0) {
+        decreasingFlag = false;
+        alert(alertMessage);
+      } else {
+        decreasingFlag = true;
+      }
+    },
+    reset: () => {
+      decreasingFlag = true;
+      progressBar.style.width = `${resetValue}%`;
+      progressBar.style.backgroundColor = 'green';
+    }
+  }
+}
+
+
+//interval1 = energy, intervavl2 = hunger, interval3 = sleep, interval 4 = hp
+
+let interval2 = startProgressBar(progressBar2, true, 1,  20.0, "I'm Feeling Hungry :(", 1000);
+let eatButton = document.getElementById("eatButton");
+eatButton.addEventListener("click", () => {
+  interval2.add(20);
+});
+
+let interval3 = startProgressBar(progressBar3, true, 1 , 20.0, "i'm feeling ssleepy zzz", 1000, 100);
+let sleepButton = document.getElementById("sleepButton");
+sleepButton.addEventListener("click", () => {
+  interval3.reset();
+});
+
+
 //energy bar
-let interval1 = setInterval(() => {
+/*let interval1 = setInterval(() => {
   let progressValue = parseFloat(progressBar1.style.width) || 100.0;
   progressValue -= 0.1;
   progressBar1.style.width = `${progressValue}%`;
@@ -79,7 +143,7 @@ sleepButton.addEventListener("click", () =>{
   progressBar3.style.width = `${newSleepWidth}%`;
   progressBar3.style.backgroundColor = 'green';
 });
-
+*/
 const img = document.getElementById('myImg');
 let currentImgIdx = 0;
 const images = [ 
