@@ -13,6 +13,7 @@ let healCounterElem = document.querySelector('#healCounter');
 let healthFlag = true;
 let healthAlertShown = false;
 let healthDecrement = false;
+let gameOver = false;
 
 let healthInterval = setInterval(() => {
   if(healthFlag && healthDecrement){
@@ -30,6 +31,7 @@ let healthInterval = setInterval(() => {
   if(health<=0 && !healthAlertShown){
     alert("Bye Bye :(");
     clearInterval(healthInterval);
+    gameOver = true;
   }
 }, 1000); //fungsi berjalan setiap detik
 
@@ -38,7 +40,7 @@ heal.addEventListener('click', () =>{
     healthFlag = true;
     healthAlertShown = false;
     health += 10;
-    if(healthDecrement){
+    if(healthDecrement && !gameOver){
       healCounter--;
       healCounterElem.textContent = healCounter;
     }
