@@ -1,4 +1,4 @@
-const progressBar1 = document.getElementById('energy');
+const progressBar1 = document.getElementById('fun');
 const progressBar2 = document.getElementById('food');
 const progressBar3 = document.getElementById('sleep');
 const progressBar4 = document.getElementById('health');

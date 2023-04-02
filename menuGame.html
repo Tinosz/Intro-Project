@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="menuStyle.css" />
   </head>
   <body>   
+    <div class="text-center">
+      <h1><span id='playerName'></span></h1>
+    </div>
       <div class="container-md text-center rounded-3" id="bar" >
           <div class="row ">
               <div class="col progress-bar" style="margin-top: 10px">
@@ -23,9 +26,9 @@
               </div>
 
               <div class="col progress-bar" style="margin-top: 10px">
-                <img src="Aset/energy.png" width="40px" height="40px">
+                <img src="Aset/158420.png" width="40px" height="40px">
                   <div class="p">
-                    <div class="progress" id="energy"></div>
+                    <div class="progress" id="fun"></div>
                   </div>
               </div>
 
@@ -53,8 +56,8 @@
 
               <div id="buttonbox">
                 <div class="row" style="margin-top: 40px">
+                  <button type="button" class="col button" id="obatButton">Obat</button>
                   <button type="button" class="col button" id="playButton">Play</button>
-                  <button type="button" class="col button" id="learnButton">Learn</button>
                   <div class="w-100"></div>
                   <button type="button" class="col button" id="eatButton">Eat</button>
                   <button type="button" class="col button" onclick="changetosleep(1)" id="sleepButton">Sleep</button>
@@ -69,5 +72,9 @@
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    <script>
+      var playerName = localStorage.getItem('playerName');
+      $('#playerName').text(playerName);
+    </script>
   </body>
 </html>
