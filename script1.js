@@ -1,3 +1,30 @@
+function gameClock() {
+  if (temp == 1) {
+    setTimeout(function() {
+      currTime++;
+      var period = "AM";
+
+      var hour = Math.floor(currTime / 10 / 60) % 60;
+      if (hour <= 9) {
+        hour = "0" + hour;
+      }
+      if (hour >= 12){
+        period = "PM"
+      }
+      var minute = Math.floor(currTime / 10) % 60;
+      if (minute <= 9) {
+        minute = "0" + minute;
+      }
+      document.getElementById("clock").innerHTML = hour + ":" + minute + period;
+      gameClock();
+    }, 100);
+  }
+}
+
+var temp = 1;
+var currTime = 7100; 
+gameClock();
+
 const progressBar1 = document.getElementById('energy');
 const progressBar2 = document.getElementById('food');
 const progressBar3 = document.getElementById('sleep');
@@ -66,7 +93,7 @@ let interval3 = setInterval(() => {
     decreasingSleep= false;
     alert("I'm feeling sleepy zzz");
   }
-}, 30); //range barnya
+}, 300); //range barnya
 
 let sleepButton = document.getElementById("sleepButton");
 sleepButton.addEventListener("click", () =>{
@@ -91,9 +118,10 @@ const images = [
     'images/lock.jpg'
 ]; 
 
-function changetosleep(currentImgIdx) {
-  if(currentImgIdx == 1)
-    img.src = "Aset/pentol/pentol-sleeping.gif";
+function changetosleep(value) {
+  let currentImgIdx = document.getElementById("object2");
+  if(value == 1)
+   currentImgIdx = img.src = "Aset/pentol/pentol-sleeping.gif";
 }
 
 
