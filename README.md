@@ -14,3 +14,20 @@ https://drive.google.com/file/d/1mq8yyZ1jHotVFf39uA-a798yvIr8ptaV/view?usp=shari
 Character Asset Links:
 https://getstickerpack.com/stickers/quby-pentol-gif (Pentol)
 https://getstickerpack.com/stickers/kitten-1 (Kitten)
+
+
+note:
+function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        m = checkTime(m);
+        document.getElementById('time').innerHTML =
+        h + ":" + m;
+        var t = setTimeout(startTime, 500);
+    }
+
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }

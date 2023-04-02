@@ -7,6 +7,14 @@
   background-color: green;
 }
 
+#food{
+  transition: width 2s;
+}
+
+#sleep{
+  transition: width 5s;
+}
+
 .p {
   background-color: grey;
   border-radius: 10px;

@@ -3,7 +3,6 @@ const progressBar2 = document.getElementById('food');
 const progressBar3 = document.getElementById('sleep');
 const progressBar4 = document.getElementById('health');
 
-
 //energy bar
 let interval1 = setInterval(() => {
   let progressValue = parseFloat(progressBar1.style.width) || 100.0;
@@ -42,7 +41,7 @@ let eatButton = document.getElementById("eatButton");
 eatButton.addEventListener("click", () =>{
   decreasingHunger= true;
   let currentHungerWidth = parseFloat(progressBar2.style.width);
-  let newHungerWidth = currentHungerWidth + 10; //seberapa besar ingin menambahkan makannya, make persentase
+  let newHungerWidth = currentHungerWidth + 20; //seberapa besar ingin menambahkan makannya, make persentase
   if (newHungerWidth > 100){
     newHungerWidth = 100; 
   }
@@ -51,10 +50,10 @@ eatButton.addEventListener("click", () =>{
 });
 
 //fatigue bar
-let decreasingSleep = true;
+let decreasingSleep= true; //membuat flag biar tahu kalau sedang berkurang atau enggak 
 let interval3 = setInterval(() => {
+  let progressValue = parseFloat(progressBar3.style.width) || 100.0;
   if(decreasingSleep){
-    let progressValue = parseFloat(progressBar3.style.width) || 100.0;
     progressValue -= 0.1;
     progressBar3.style.width = `${progressValue}%`;
   }
@@ -64,10 +63,22 @@ let interval3 = setInterval(() => {
   }
 
   if (progressValue <= 0) {
-    decreasingSleep = false;
+    decreasingSleep= false;
     alert("I'm feeling sleepy zzz");
   }
-}, 7);
+}, 30); //range barnya
+
+let sleepButton = document.getElementById("sleepButton");
+sleepButton.addEventListener("click", () =>{
+  decreasingSleep= true;
+  let currentSleepWidth = parseFloat(progressBar3.style.width);
+  let newSleepWidth = currentSleepWidth + 20; //seberapa besar ingin menambahkan makannya, make persentase
+  if (newSleepWidth > 100){
+    newSleepWidth = 100; 
+  }
+  progressBar3.style.width = `${newSleepWidth}%`;
+  progressBar3.style.backgroundColor = 'green';
+});
 
 const img = document.getElementById('myImg');
 let currentImgIdx = 0;
@@ -79,40 +90,24 @@ const images = [
     'images/leaves.jpg',
     'images/lock.jpg'
 ]; 
+
 function changetosleep(currentImgIdx) {
   if(currentImgIdx == 1)
     img.src = "Aset/pentol/pentol-sleeping.gif";
 }
 
 
-const clock = document.getElementById("time");
-	var getTime = new Date();
-	var hour = getTime.getHours();
-	var minute = getTime.getMinutes();
-	var stopTime = true;
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  m = checkTime(m);
+  document.getElementById('time').innerHTML =
+  h + ":" + m;
+  var t = setTimeout(startTime, 500);
+}
 
-	function startTime() {
-		minute = parseInt(minute);
-		hour = parseInt(hour);
-		minute = minute + 1;
-
-		if (minute == 60) {
-			hour = hour + 1;
-			minute = 0;
-		}
-
-		if (minute < 10 || minute == 0) {
-			minute = '0' + minute;
-		}
-
-		if (hour < 10 || hour == 0) {
-			hour = '0' + hour;
-		}
-
-		if (hour > 23) {
-			hour = '00';
-		}
-
-		clock.innerHTML = "<h3>" + hour + ":" + minute + "</h3>";
-		setTimeout("startTime()", 1000);
-	}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
