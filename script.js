@@ -132,7 +132,7 @@ let interval3 = setInterval(() => {
     decreasingSleep= false;
     alert("I'm feeling sleepy zzz");
   }
-}, 30); //range barnya
+}, 300); //range barnya
 
 let sleepButton = document.getElementById("sleepButton");
 sleepButton.addEventListener("click", () =>{
@@ -157,23 +157,9 @@ const images = [
     'images/lock.jpg'
 ]; 
 
-function changetosleep(currentImgIdx) {
-  if(currentImgIdx == 1)
-    img.src = "Aset/pentol/pentol-sleeping.gif";
+function changetosleep(value) {
+  let currentImgIdx = document.getElementById("object2");
+  if(value == 1)
+   currentImgIdx = img.src = "Aset/pentol/pentol-sleeping.gif";
 }
 
-
-function startTime() {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  m = checkTime(m);
-  document.getElementById('time').innerHTML =
-  h + ":" + m;
-  var t = setTimeout(startTime, 500);
-}
-
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}

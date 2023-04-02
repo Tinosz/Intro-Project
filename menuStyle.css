@@ -7,14 +7,6 @@
   background-color: green;
 }
 
-#food{
-  transition: width 2s;
-}
-
-#sleep{
-  transition: width 5s;
-}
-
 .p {
   background-color: grey;
   border-radius: 10px;
@@ -49,28 +41,49 @@
   transform: scale(0.99);
 }
 
+#clock{
+  position: absolute;
+  background-color: lightgrey;
+  border-radius: 10px;
+  border: 3px solid lightsalmon;
+  padding: 12px;
+  width: 150px;
+  margin: auto;
+  margin-top: 70px;
+  color: rgb(118, 160, 198);
+  font-weight: bold;
+  box-shadow: 0px 10px 15px 15px rgba(0,0,0,0.1);
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+
 #objectbox{
   position: relative;
+  margin: auto;
+  border-radius: 10px;
+  justify-content: center;
+  background-repeat: no-repeat;
 }
 
-#object1 {
-  margin-top: 30px;
-  max-width: 1000px;
-  max-height: 400px;
-  float: center;
+#object1{
+  position: relative;
   width: 100%;
   height: auto;
-  position: relative;
-}
-
-#layer{
+  max-width: 1000px;
+  max-height: 400px;
+  margin-top: 30px;
   float: center;
+  border-radius: 10px;
 }
 
 #object2{
+  margin: auto;
   position: absolute;
-  top: 150px;
-  left: 160px;
-  transform: translateX("50%") ;
+  margin-bottom: 40px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
