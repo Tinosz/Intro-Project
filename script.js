@@ -66,7 +66,11 @@ sleepButton.addEventListener("click", () => {
   interval3.reset();
 });
 
-
+let interval1 = startProgressBar(progressBar1, true, 1,  20.0, "I'm bored, let's play some game :(", 1000, 100);
+let playButton = document.getElementById("playButton");
+playButton.addEventListener("click", () => {
+  interval1.reset();
+});
 
 
 //energy bar
@@ -163,3 +167,26 @@ function changetosleep(value) {
    currentImgIdx = img.src = "Aset/pentol/pentol-sleeping.gif";
 }
 
+// parent window JavaScript code
+function openPopup() {
+  const popupWidth = 400;
+  const popupHeight = 475;
+  const popupLeft = (screen.width - popupWidth) / 2;
+  const popupTop = (screen.height - popupHeight) / 2;
+
+  const popup = window.open("uler.html", "game-uler", `width=${popupWidth},height=${popupHeight},left=${popupLeft},top=${popupTop}`);
+
+  // Add an event listener to the window object that listens for the beforeunload event
+  window.addEventListener('beforeunload', function(event) {
+    // Check if the popup window is still open
+    if (popup && !popup.closed) {
+      // If the content is finished or cannot be clicked anymore, close the popup window
+      if (popup.contentFinished || !popup.document.hasFocus()) {
+        popup.close();
+      } else {
+        // Prevent the default behavior of the beforeunload event
+        event.preventDefault();
+      }
+    }
+  });
+}
