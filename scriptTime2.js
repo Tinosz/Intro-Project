@@ -48,6 +48,16 @@ function gameClock() {
         } else{
           document.getElementById("object1").src = "Aset/Bedroom_Night.png";
         }
+
+        if (hour >= 0 && hour < 6) {
+          document.body.style.backgroundColor = "#001A26";
+        } else if (hour >= 6 && hour < 15) {
+          document.body.style.backgroundColor = "#87CEFA";
+        } else if (hour >= 16 && hour < 19) {
+          document.body.style.backgroundColor = "#EF810E";
+        } else {
+          document.body.style.backgroundColor = "#053752";
+        }
         gameClock();
       }, 25);
     }

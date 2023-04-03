@@ -77,13 +77,12 @@ body {
   margin-right: 20px;
   margin-left: 20px;
   margin-bottom: 10px;
-  background-color: #C8A2C8;
+  background-color: whitesmoke;
   font-size: 20px;
-  font-family: Verdana;
 }
   
 .button:hover {
-  background-color: lightcoral; /* Green */
+  background-color: grey;
   color: white;
   transition: 300ms;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
@@ -112,6 +111,21 @@ body {
   transform: translateX(-50%);
 }
 
+.float {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
 
 #objectbox {
   position: relative;
