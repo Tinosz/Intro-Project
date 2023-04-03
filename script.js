@@ -159,6 +159,7 @@ let healthInterval = setInterval(() => {
     gameOverText.style.color = 'white';
     gameOverText.style.fontSize = '3em';
     gameOverText.style.textAlign = 'center';
+    gameOverOverlay.style.zIndex = '9999';
     gameOverText.textContent = 'Game Over!';
     gameOverOverlay.appendChild(gameOverText);
     document.body.appendChild(gameOverOverlay);
