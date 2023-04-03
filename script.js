@@ -95,13 +95,13 @@ let dangerZone = false;
 
 if(!dangerZone){
   var chatList = [
-    "I like fish",
-    "How are you?",
-    "Itchy...",
-    "Is that you I saw?",
-    "Never have I ever...",
-    "What's that sound?",
-    "Constant Jazz~",
+    "<br>I like fish",
+    "<br>How are you?",
+    "<br>Itchy...",
+    "<br>Is that you I saw?",
+    "<br>Never have I<br>ever...",
+    "<br>What's that sound?",
+    "<br>Constant Jazz~",
   ];
   
   function switchChat(){
