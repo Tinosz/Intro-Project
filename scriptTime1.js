@@ -42,13 +42,23 @@ function gameClock() {
           greeting = "Selamat Malam";
           document.getElementById("greeting").innerHTML = greeting;
         }
+
+        if (hour >= 0 && hour < 6) {
+          document.getElementById("object1").src = "Aset/Bedroom_Night_Dark.png";
+        } else if (hour >= 6 && hour < 15) {
+          document.getElementById("object1").src = "Aset/Bedroom_Day.png";
+        } else if(hour >=16 && hour < 19){
+          document.getElementById("object1").src = "Aset/Bedroom_Evening.png";
+        } else{
+          document.getElementById("object1").src = "Aset/Bedroom_Night.png";
+        }
         gameClock();
-      }, 50);
+      }, 25);
     }
   
   
 
-  var currTime = 14300; 
+  var currTime = 3600; 
   gameClock();
   
   

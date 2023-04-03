@@ -54,8 +54,8 @@
             </div>
             
             <div id="objectbox">
-              <img id="object1" src="Aset/hallway.jpeg">
-              <div id="clock" class="hour"></div>
+              <img id="object1" src="">
+              <div id="clock" class="hour clockFont"></div>
               <div id="chatMessage">
                 <div><p id="pentolChat"></p></div>
               </div>
@@ -79,11 +79,15 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <!--<script src="script.js"></script>-->
     <script src="scriptTime1.js"></script>
     <script>
       var playerName = localStorage.getItem('playerName');
       $('#playerName').text(playerName);
+      var scriptFile = localStorage.getItem('scriptFile');
+      if (scriptFile) {
+      $.getScript(scriptFile);
+    }
     </script>
   </body>
 </html>

@@ -11,6 +11,9 @@ function switchImage() {
 
 switchImage();
 
+var pentolIdle = document.getElementById("object2");
+pentolIdle.src = "Aset/pentol/pentol-idle.gif";
+
 
 /*const progressBar1 = document.getElementById('energy');
 const progressBar2 = document.getElementById('food');
@@ -80,6 +83,29 @@ sleepButton.addEventListener("click", () => {
 });*/
 
 
+
+let dangerZone = false;
+
+if(!dangerZone){
+  var chatList = [
+    "I like fish",
+    "How are you?",
+    "Itchy...",
+    "Is that you I saw?",
+    "Never have I ever...",
+    "What's that sound?",
+    "Constant Jazz~",
+  ];
+  
+  function switchChat(){
+    var randomChat = Math.floor(Math.random() * chatList.length);
+    var randomMsg = chatList[randomChat];
+    document.getElementById("pentolChat").innerHTML = chatList[randomChat];
+  }
+  
+  setInterval(switchChat, 10000);
+}
+
 let health = 100;
 let healthBar = document.querySelector('#health');
 let heal = document.querySelector('#obatButton');
@@ -100,14 +126,15 @@ let healthInterval = setInterval(() => {
 
   if(health <= 20 && !healthAlertShown){
     healthAlertShown = true;
-    alert("I'm feeling sick");
+    dangerZone = true;
+    pentolChat.innerHTML = "Not feeling <br> well...";
     healthBar.style.backgroundColor = 'red';
   }else{
     hungerBar.style.backgroundColor = 'green';
   }
 
   if(health<=0){
-    alert("Bye Bye :(");
+    pentolChat.innerHTML = "Bye bye :'(";
     clearInterval(healthInterval);
     gameOver = true;
     const gameOverOverlay = document.createElement('div');
@@ -116,11 +143,12 @@ let healthInterval = setInterval(() => {
     gameOverOverlay.style.left = 0;
     gameOverOverlay.style.width = '100%';
     gameOverOverlay.style.height = '100%';
-    gameOverOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    gameOverOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
     gameOverOverlay.style.display = 'flex';
     gameOverOverlay.style.alignItems = 'center';
     gameOverOverlay.style.justifyContent = 'center';
     const gameOverText = document.createElement('p');
+    gameOverText.style.fontFamily = 'pixelFont';
     gameOverText.style.color = 'white';
     gameOverText.style.fontSize = '3em';
     gameOverText.style.textAlign = 'center';
@@ -138,7 +166,7 @@ heal.addEventListener('click', () =>{
     healthFlag = true;
     healthAlertShown = false;
     health += 10;
-    if(healthDecrement && !gameOver){
+    if(healthDecrement || health < 100){
       healCounter--;
       healCounterElem.textContent = healCounter;
     }
@@ -149,7 +177,7 @@ heal.addEventListener('click', () =>{
   }
 });
 
-//emotion bar
+//fun bar
 let fun = 100;
 let funBar = document.querySelector('#fun');
 let playBtn = document.querySelector('#playButton');
@@ -168,14 +196,15 @@ let funInterval= setInterval(() => {
   }
 
   if(fun <= 20){
+    dangerZone = true;
     funBar.style.backgroundColor = 'red';
+    pentolChat.innerHTML = "I'm bored...";
   } else{
     funBar.style.backgroundColor = 'green';
   }
 
   if(fun<=0 && !playAlertShown){
     funFlag = false;
-    alert("I'm bored...")
     playAlertShown = true;
   }
 }, 1000); //fungsi berjalan setiap detik
@@ -214,14 +243,15 @@ let hungerInterval = setInterval(() => {
   }
 
   if(hunger <= 20){
+    dangerZone = true;
     hungerBar.style.backgroundColor = 'red';
+    pentolChat.innerHTML = "I'm feeling <br> hungry...";
   } else{
     hungerBar.style.backgroundColor = 'green';
   }
 
   if(hunger<=0 && !hungerAlertShown){
     hungerFlag = false;
-    alert("I'm feeling hungry...")
     hungerAlertShown = true;
     healthDecrement = true;
   }
@@ -247,19 +277,20 @@ let sleepAlertShown = false;
 
 let sleepInterval= setInterval(() => {
   if(sleepFlag){
-    sleep -= 1;
+    sleep -= 100/180;
     sleepBar.style.width = `${sleep}%`;
   }
 
   if(sleep <= 20){
+    dangerZone = true;
     sleepBar.style.backgroundColor = 'red';
+    pentolChat.innerHTML = "Feeling tired...";
   } else{
     sleepBar.style.backgroundColor = 'green';
   }
 
   if(sleep<=0 && !sleepAlertShown){
     sleepFlag = false;
-    alert("Feeling tired...")
     sleepAlertShown = true;
   }
 }, 1000); //fungsi berjalan setiap detik
@@ -269,8 +300,10 @@ sleepBtn.addEventListener('click', () =>{
   sleepAlertShown = false;
   if(hunger <= 50){ //kondisi tidur
     sleep += 35;
+    currTime += 3 * 60 * 10;
   }else{
     sleep += 100;
+    currTime += 8 * 60 * 10;
   }
   
   if(sleep > 100){
