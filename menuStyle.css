@@ -1,10 +1,63 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@font-face {
+  font-family: pixelFont;
+  src: url("Fonts/ccoverbyteoffregular.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: smallPixelFont;
+  src: url("Fonts/Minecraft.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: clockFont1;
+  src: url("Fonts/digital-7.ttf") format("truetype");
+}
+
+.pixelFont{
+  font-family: pixelFont;
+}
+
+.smallPixelFont {
+  font-family: smallPixelFont;
+}
+
+
+.clockFont {
+  font-family: clockFont1;
+  font-size: 25px;
+}
+
+#playerName, #greeting{
+  color:black;
+}
+
 #bar {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  padding: 1px;
+  margin-top: 5px;
   background-color: aliceblue;
+}
+
+.progress-bar{
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .progress{
   background-color: green;
+  transition: 1s linear;
+  height: 10px;
 }
 
 .p {
@@ -43,9 +96,10 @@
 
 #clock{
   position: absolute;
-  background-color: lightgrey;
+  background-color: black;
+  opacity: 0.85;
   border-radius: 10px;
-  border: 3px solid lightsalmon;
+  border: 3px solid whitesmoke;
   padding: 12px;
   width: 150px;
   margin: auto;
@@ -59,7 +113,7 @@
 }
 
 
-#objectbox{
+#objectbox {
   position: relative;
   margin: auto;
   border-radius: 10px;
@@ -67,7 +121,55 @@
   background-repeat: no-repeat;
 }
 
-#object1{
+#level-counter {
+  position: absolute;
+  top: -15px;
+  left: -50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  border: 2px solid red;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#level-counter-value {
+  margin-top: -3px;
+}
+
+
+#level-bar {
+  position: absolute;
+  top: 60px;
+  left: 220px;
+  width: 150px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 10px;
+  z-index: 1; 
+}
+
+#level-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgb(242, 164, 95);
+  border-radius: 10px;
+  transition: width 360s linear;
+}
+
+#level-bar-fill.empty {
+  transition: none;
+  width: 0%;
+}
+
+#object1 {
   position: relative;
   width: 100%;
   height: auto;
@@ -78,12 +180,33 @@
   border-radius: 10px;
 }
 
-#object2{
+#object2 {
   margin: auto;
   position: absolute;
   margin-bottom: 40px;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  width: 200px;
 }
 
+#chatMessage{
+  position: absolute;
+  width: 240px;
+  height: 190px;
+  background-image: url("Aset/chatbubble1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 0;
+  right: 0;
+  margin-right: 200px;
+  margin-bottom: 140px;
+  transform: translateX(-50%);
+}
+
+#pentolChat{
+  margin: auto;
+  margin-top: 57px;
+  margin-right: 45px;
+  font-weight: bold;
+}
