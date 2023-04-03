@@ -64,7 +64,11 @@ let playAlertShown = false;
 
 let funInterval= setInterval(() => {
   if(funFlag){
-    fun -= 0.5;
+    if(!sleepFlag){
+      fun -= 10; //
+    } else{
+      fun -= 0.5;
+    }
     funBar.style.width = `${fun}%`;
   }
 
@@ -84,7 +88,11 @@ let funInterval= setInterval(() => {
 playBtn.addEventListener('click', () =>{
   funFlag = true;
   playAlertShown = false;
-  fun += 50;
+  if(!sleepFlag){
+    fun += 10;
+  }else{
+    fun += 50;
+  }
   if(fun > 100){
     fun = 100;
   }
@@ -102,7 +110,11 @@ let hungerAlertShown = false;
 let hungerInterval = setInterval(() => {
   if(hungerFlag){
     healthDecrement = false;
-    hunger -= 1;
+    if(!funFlag){
+      hunger -= 10;
+    }else{
+      hunger -= 1;
+    }
     hungerBar.style.width = `${hunger}%`;
   }
 
@@ -152,7 +164,7 @@ let sleepInterval= setInterval(() => {
 
   if(sleep<=0 && !sleepAlertShown){
     sleepFlag = false;
-    alert("I'm bored...")
+    alert("Feeling tired...")
     sleepAlertShown = true;
   }
 }, 1000); //fungsi berjalan setiap detik
