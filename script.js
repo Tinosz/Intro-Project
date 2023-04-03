@@ -11,8 +11,15 @@ function switchImage() {
 
 switchImage();
 
+
 var pentolIdle = document.getElementById("object2");
 pentolIdle.src = "Aset/pentol/pentol-idle.gif";
+
+function setVolume() {
+  var myAudio = document.getElementById("myAudio");  
+  myAudio.volume = 0.2;
+}
+
 
 
 /*const progressBar1 = document.getElementById('energy');
@@ -315,7 +322,7 @@ sleepBtn.addEventListener('click', () =>{
 function changetoeat() {
   const eatingImage = "Aset/sad.gif";
   const intervalDuration = 3000; // 5 seconds
-  document.getElementById("object2").src = eatingImage;
+  document.getElementById("object2").src = "Aset/eating.gif";
   setTimeout(() => {
     document.getElementById("object2").src = "Aset/pentol/pentol-idle.gif";
   }, intervalDuration);

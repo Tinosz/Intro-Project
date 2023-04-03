@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Simulation</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -13,15 +13,17 @@
     <link rel="stylesheet" href="menuStyle.css" />
   </head>
   <body onload="updateClock()">  
-    <audio id="myAudio" autoplay loop>
+    <audio id="myAudio" autoplay loop onloadeddata="setVolume()">
       <source src="Aset/bgm.mp3" type="audio/mpeg">
-    </audio>   
-    <div class="text-center row-md">
-      <h1 class="pixelFont" style="margin-top: 10px;"><span id='greeting'></span></h1>
-      <h1 class="pixelFont"><span id='playerName'></span></h1>
-    </div>
+    </audio>      
       
       <div class="container-md text-center rounded-3" id="bar" >
+        <div class="text-center row-md header">
+          <h1 class="pixelFont" style="margin-top: 10px;">
+              <span id='greeting'></span> <span id='playerName'></span>
+          </h1>
+      </div>
+      
           <div class="row ">
               <div class="col progress-bar" style="margin-top: 0px">
                 <img src="aset/health.png" width="40px" height="40px">
@@ -54,20 +56,32 @@
             </div>
             
             <div id="objectbox">
-              <img id="object1" src="">
+
+              <div id="level-bar">
+                <div id="level-counter">
+                  <div id="level-counter-value">0</div>
+                </div>
+                
+                <div id="level-bar-fill" value="0" max="100"></div>
+              </div>
+               <img id="object1" src="">
               <div id="clock" class="hour clockFont"></div>
+
               <div id="chatMessage">
                 <div><p id="pentolChat"></p></div>
               </div>
               <img id="object2" src="">
             </div>
             
+            
 
             <div id="buttonbox">
-              <div class="row" style="margin-top: 40px">
-                <button type="button" class="col button" id="obatButton" onclick="changetoobat()">Use Medicine (<span id="healCounter">10</span>)</button>
+
+              <div class="row" style="margin-top: 20px; margin-bottom: 15px">
+                 <button type="button" class="col button" id="obatButton" onclick="changetoobat()">Use Medicine (<span id="healCounter">10</span>)</button>
+
                 <button type="button" class="col button" id="playButton" onclick="changetoplay()">Play</button>
-                <div class="w-100"></div>
+                
                 <button type="button" class="col button" id="eatButton" onclick="changetoeat()">Eat</button>
                 <button type="button" class="col button" id="sleepButton" onclick="changetosleep()">Sleep</button>
               </div>
