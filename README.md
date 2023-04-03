@@ -16,10 +16,10 @@ https://getstickerpack.com/stickers/quby-pentol-gif (Pentol)
 https://getstickerpack.com/stickers/kitten-1 (Kitten)
 
 Logika Barnya:
-Kalau bar lapar kosong = hp berkurang (heal hanya bisa dipakai 10x)
-kalau bar lapar kurang dari 50%, tidurnya akan berkurang
-kalau tidurnya kosong, kesenangan akan berkurang lebih cepat dan tambahnya juga berkurang
-kalau emosinya kosong, akan lebih cepat lapar
+- Kalau bar lapar kosong = hp berkurang (heal hanya bisa dipakai 10x)
+- kalau bar lapar kurang dari 50%, tidurnya akan berkurang
+- kalau tidurnya kosong, kesenangan akan berkurang lebih cepat dan tambahnya juga berkurang
+- kalau emosinya kosong, akan lebih cepat lapar
 
 
 
