@@ -86,6 +86,7 @@ function switchImage() {
       gameOverText.style.fontFamily = 'pixelFont';
       gameOverText.style.color = 'white';
       gameOverText.style.fontSize = '3em';
+      gameOverOverlay.style.zIndex = '9999';
       gameOverText.style.textAlign = 'center';
       gameOverText.textContent = 'Game Over!';
       gameOverOverlay.appendChild(gameOverText);

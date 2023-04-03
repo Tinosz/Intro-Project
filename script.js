@@ -96,7 +96,7 @@ let healthInterval = setInterval(() => {
       window.location.href = 'index.html';
     });
   }
-}, 1000); //fungsi berjalan setiap detik
+}, 500); //fungsi berjalan setiap detik
 
 heal.addEventListener('click', () =>{
   if(healCounter > nullHP){
@@ -144,7 +144,7 @@ let funInterval= setInterval(() => {
     funFlag = false;
     playAlertShown = true;
   }
-}, 1000); //fungsi berjalan setiap detik
+}, 500); //fungsi berjalan setiap detik
 
 playBtn.addEventListener('click', () =>{
   funFlag = true;
@@ -192,7 +192,7 @@ let hungerInterval = setInterval(() => {
     hungerAlertShown = true;
     healthDecrement = true;
   }
-}, 1000); //fungsi berjalan setiap detik
+}, 500); //fungsi berjalan setiap detik
 
 eatBtn.addEventListener('click', () =>{
   hungerFlag = true;
@@ -230,7 +230,7 @@ let sleepInterval= setInterval(() => {
     sleepFlag = false;
     sleepAlertShown = true;
   }
-}, 1000); //fungsi berjalan setiap detik
+}, 500); //fungsi berjalan setiap detik
 
 sleepBtn.addEventListener('click', () =>{
   sleepFlag = true;
