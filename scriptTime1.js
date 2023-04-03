@@ -91,16 +91,20 @@ if(temp == 0){
 }
 fillBar();
 
-var level = document.getElementById("level-counter-value").value;
-const evolution = "";
-if (level >= 5 && level <= 10){
-  evolution = "Aset/";
-} else if (level > 10 && level <= 15){
-  evolution = "";
-} else if (level > 15 && level <= 20)
-  evolution = "";
 
-  document.getElementById("object2").innerHTML = evolution;
+var level = document.getElementById("level-counter-value").textContent;
+
+function changeObject2Image() {
+  if (level >= 4 && level < 9) {
+    document.getElementById("object2").src = "Aset/pentol/evolve2.gif";
+  } else if (level >= 9 && level < 14) {
+    document.getElementById("object2").src = "Aset/pentol/evolve3.gif";
+  } else if (level >= 14) {
+    document.getElementById("object2").src = "Aset/pentol/evolve4.gif";
+  }
+}
+
+changeObject2Image();
   
   var currTime = 3600; 
   gameClock();

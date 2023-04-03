@@ -159,6 +159,7 @@ let healthInterval = setInterval(() => {
     gameOverText.style.color = 'white';
     gameOverText.style.fontSize = '3em';
     gameOverText.style.textAlign = 'center';
+    gameOverOverlay.style.zIndex = '9999';
     gameOverText.textContent = 'Game Over!';
     gameOverOverlay.appendChild(gameOverText);
     document.body.appendChild(gameOverOverlay);
@@ -320,29 +321,49 @@ sleepBtn.addEventListener('click', () =>{
 });
 
 function changetoeat() {
-  const eatingImage = "Aset/sad.gif";
-  const intervalDuration = 3000; // 5 seconds
-  document.getElementById("object2").src = "Aset/eating.gif";
+  const eatingImage = "Aset/pentol/eating.gif";
+  const idleImage = "Aset/pentol/pentol-idle.gif";
+  const intervalDuration = 3000;
+  const object2 = document.getElementById("object2");
+  document.getElementById("object2").src = eatingImage;
   setTimeout(() => {
-    document.getElementById("object2").src = "Aset/pentol/pentol-idle.gif";
+    object2.src = `${idleImage}`;
   }, intervalDuration);
 }
 
-function changetosleep() {
-  const eatingImage = "Aset/sad.gif";
-  const intervalDuration = 5000; // 5 seconds
-  document.getElementById("object2").src = eatingImage;
+function changeImageToSleeping() {
+  const sleepingImage = "Aset/pentol/sleeping.gif";
+  const idleImage = "Aset/pentol/pentol-idle.gif";
+  const intervalDuration = 5000;
+  const object2 = document.getElementById("object2");
+  object2.src = `${sleepingImage}`;
   setTimeout(() => {
-    document.getElementById("object2").src = "Aset/pentol/pentol-idle.gif";
+    object2.src = `${idleImage}`;
   }, intervalDuration);
 }
+
 
 function changetoobat() {
-  const eatingImage = "Aset/sad.gif";
-  const intervalDuration = 5000; // 5 seconds
-  document.getElementById("object2").src = eatingImage;
+  const healingImage = "Aset/pentol/sad.gif";
+  const idleImage = "Aset/pentol/pentol-idle.gif";
+  const intervalDuration = 3000;
+  const object2 = document.getElementById("object2");
+  object2.src = `${healingImage}`;
+  document.getElementById("object2").src = healingImage;
   setTimeout(() => {
-    document.getElementById("object2").src = "Aset/pentol/pentol-idle.gif";
+    object2.src = `${idleImage}`;
+  }, intervalDuration);
+}
+
+function changetoplay() {
+  const playingImage = "Aset/pentol/playing.gif";
+  const idleImage = "Aset/pentol/pentol-idle.gif";
+  const intervalDuration = 4000;
+  const object2 = document.getElementById("object2");
+  object2.src = `${playingImage}`;
+  document.getElementById("object2").src = playingImage;
+  setTimeout(() => {
+    object2.src = `${idleImage}`;
   }, intervalDuration);
 }
 
