@@ -83,7 +83,7 @@
                 <button type="button" class="col button" id="playButton" onclick="changetoplay()">Play</button>
                 
                 <button type="button" class="col button" id="eatButton" onclick="changetoeat()">Eat</button>
-                <button type="button" class="col button" id="sleepButton" onclick="changetosleep()">Sleep</button>
+                <button type="button" class="col button" id="sleepButton" onclick="changeImageToSleeping()">Sleep</button>
               </div>
              
 
@@ -94,14 +94,21 @@
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--<script src="script.js"></script>-->
-    <script src="scriptTime1.js"></script>
+    <!--<script src="script.js"></script>-->
+    <!--<script src="scriptTime1.js"></script>-->
     <script>
       var playerName = localStorage.getItem('playerName');
       $('#playerName').text(playerName);
+
       var scriptFile = localStorage.getItem('scriptFile');
       if (scriptFile) {
-      $.getScript(scriptFile);
-    }
-    </script>
+        $.getScript(scriptFile);
+      }
+
+      var scriptTimeFile = localStorage.getItem('scriptTimeFile');
+      if (scriptTimeFile) {
+        $.getScript(scriptTimeFile);
+      }
+          </script>
   </body>
 </html>
