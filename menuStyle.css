@@ -161,7 +161,7 @@ body {
   height: 100%;
   background-color: rgb(242, 164, 95);
   border-radius: 10px;
-  transition: width 360s linear;
+  transition: width 180s linear;
 }
 
 #level-bar-fill.empty {

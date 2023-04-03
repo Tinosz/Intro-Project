@@ -72,7 +72,7 @@ function fillBar() {
   if (isFull) {
     levelBarFill.classList.remove("empty");
     levelBarFill.style.width = "100%";
-    setTimeout(emptyBar, 360000);
+    setTimeout(emptyBar, 180000);
     isFull = false;
   }
 }
