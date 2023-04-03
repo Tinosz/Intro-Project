@@ -1,8 +1,21 @@
+function switchImage() {
+  const images = ['Aset/pentol/pentol-idle.gif', 'Aset/chad.gif', 'Aset/laptop.gif', 'Aset/cold.gif', 'Aset/chad.gif']; // an array of image file names
+  let currentImageIndex = 0;
+  const imageElement = document.getElementById('object2'); 
+
+  setInterval(() => {
+    currentImageIndex = (currentImageIndex + 1) % images.length; 
+    imageElement.src = images[currentImageIndex]; 
+  }, 30000); 
+}
+
+switchImage();
+
+
 const progressBar1 = document.getElementById('energy');
 const progressBar2 = document.getElementById('food');
 const progressBar3 = document.getElementById('sleep');
 const progressBar4 = document.getElementById('health');
-
 function startProgressBar(progressBar, decreasingFlag, decrementValue, threshold, alertMessage, resetValue = 100, barAmount) {
   
   let interval = setInterval(() => {

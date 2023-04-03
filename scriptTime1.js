@@ -22,8 +22,7 @@ function gameClock() {
         hour = hour % 24;
         
         document.getElementById("clock").innerHTML = hour + ":" + minute + period;
-        
-
+          
         if(hour >= 0 && hour < 6){
           greeting = "Selamat Tidur";
           document.getElementById("greeting").innerHTML = greeting;
@@ -44,7 +43,7 @@ function gameClock() {
           document.getElementById("greeting").innerHTML = greeting;
         }
         gameClock();
-      }, 1);
+      }, 50);
     }
   
   
