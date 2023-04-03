@@ -38,10 +38,18 @@ function gameClock() {
           document.getElementById("greeting").innerHTML = greeting;
         }
 
-        
 
+        if (hour >= 0 && hour < 6) {
+          document.getElementById("object1").src = "Aset/Bedroom_Night_Dark.png";
+        } else if (hour >= 6 && hour < 15) {
+          document.getElementById("object1").src = "Aset/Bedroom_Day.png";
+        } else if(hour >=16 && hour < 19){
+          document.getElementById("object1").src = "Aset/Bedroom_Evening.png";
+        } else{
+          document.getElementById("object1").src = "Aset/Bedroom_Night.png";
+        }
         gameClock();
-      }, 1);
+      }, 25);
     }
   
 var currTime = 3500; 
@@ -93,3 +101,6 @@ if (level >= 5 && level <= 10){
   evolution = "";
 
   document.getElementById("object2").innerHTML = evolution;
+  
+  var currTime = 3600; 
+  gameClock();

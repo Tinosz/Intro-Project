@@ -13,9 +13,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <audio id="myAudio" autoplay loop>
+      <source src="Aset/1-09 Money Makes Money.mp3" type="audio/mpeg">
+    </audio>
     <div id="background"></div>
     <div class="text-center menu">
-      <h1 class="pixelFont 2Show text-white">-Choose your Character-</h1>
+      <h1 class="pixelFont 2Show text-white float">-Choose your Character-</h1>
       <div
       class="d-flex flex-column justify-content-center align-items-center"
       style="height: 500px"
@@ -25,7 +28,7 @@
           <h1 class="pixelFont">Start your Journey</h1>
         </div>
       </div>
-      <div class="mt-4 clickAnywhere 1Show">
+      <div class="mt-4 clickAnywhere 1Show float">
         <h1 class="smallPixelFont 1Show fadeInOut">-Click anywhere to choose a Character-</h1>
       </div>
       
@@ -67,11 +70,6 @@
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      function startGame(){
-        var playerName = $('#playerName').val();
-        localStorage.setItem('playerName', playerName);
-        location.href = 'menuGame.html';
-      }
       $(document).ready(function() {
         $('.2Show').hide();
 
@@ -86,18 +84,45 @@
         var characters = $('.character');
 
         $(characters[index]).addClass('selected center');
+
         $('#leftButton').click(function() {
           $(characters[index]).removeClass('selected center').addClass('right');
           index = (index - 1 + characters.length) % characters.length;
           $(characters[index]).addClass('selected center').removeClass('left');
         });
-        $('#rightButton').click(function(){
+
+        $('#rightButton').click(function() {
           $(characters[index]).removeClass('selected center').addClass('left');
-          index = (index + 1 ) % characters.length;
+          index = (index + 1) % characters.length;
           $(characters[index]).addClass('selected center').removeClass('right');
         });
-        
-      });
+
+        characters.each(function(i) {
+          $(this).attr('data-index', i);
+        });
+            });
+            
+            function startGame() {
+              var playerName = $('#playerName').val();
+                if (playerName.trim() === '') {
+                  playerName = 'Lorem Ipsum';
+                }
+                localStorage.setItem('playerName', playerName);
+
+            var selectedCharacterIndex = $('.character.selected').data('index');
+            localStorage.setItem('selectedCharacterIndex', selectedCharacterIndex);
+
+            var scriptFile;
+            if (selectedCharacterIndex === 0) {
+              scriptFile = 'script.js';
+            } else if (selectedCharacterIndex === 1) {
+              scriptFile = 'script2.js';
+            }
+            localStorage.setItem('scriptFile', scriptFile);
+
+            location.href = 'menuGame.html';
+          }
+
     </script>
   </body>
 </html>
