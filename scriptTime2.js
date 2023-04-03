@@ -1,3 +1,5 @@
+
+var greeting;
 function gameClock() {
     if (temp == 1) {
       setTimeout(function() {
@@ -16,6 +18,26 @@ function gameClock() {
           minute = "0" + minute;
         }
         document.getElementById("clock").innerHTML = hour + ":" + minute + period;
+
+        if(hour >= 0 && hour < 6){
+          greeting = "Selamat Tidur";
+          document.getElementById("greeting").innerHTML = greeting;
+        }
+
+        if(hour >= 6 && hour < 12){
+          greeting = "Selamat Siang";
+          document.getElementById("greeting").innerHTML = greeting;
+        }
+
+        if(hour >= 12 && hour < 18){
+          greeting = "Selamat Sore";
+          document.getElementById("greeting").innerHTML = greeting;
+        }
+
+        if(hour >= 18 && hour < 24){
+          greeting = "Selamat Malam";
+          document.getElementById("greeting").innerHTML = greeting;
+        }
         gameClock();
       }, 100);
     }

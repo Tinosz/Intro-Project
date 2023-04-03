@@ -1,7 +1,84 @@
+function switchImage() {
+  const images = ['Aset/pentol/pentol-idle.gif', 'Aset/chad.gif', 'Aset/laptop.gif', 'Aset/cold.gif', 'Aset/chad.gif']; // an array of image file names
+  let currentImageIndex = 0;
+  const imageElement = document.getElementById('object2'); 
+
+  setInterval(() => {
+    currentImageIndex = (currentImageIndex + 1) % images.length; 
+    imageElement.src = images[currentImageIndex]; 
+  }, 30000); 
+}
+
+switchImage();
+
+
 /*const progressBar1 = document.getElementById('energy');
 const progressBar2 = document.getElementById('food');
 const progressBar3 = document.getElementById('sleep');
-const progressBar4 = document.getElementById('health');*/
+const progressBar4 = document.getElementById('health');
+function startProgressBar(progressBar, decreasingFlag, decrementValue, threshold, alertMessage, resetValue = 100, barAmount) {
+  
+  let interval = setInterval(() => {
+    let progressValue = parseFloat(progressBar.style.width) || 100.0;
+    if (decreasingFlag) {
+      progressValue -= decrementValue;
+      progressBar.style.width = `${progressValue}%`;
+    }
+
+    if (progressValue <= threshold) {
+      progressBar.style.backgroundColor = 'red'; 
+      document.getElementById("pentolChat").innerHTML = (alertMessage);
+    } 
+    
+    if(progressValue <= 0){
+      decreasingFlag = false;
+    }
+  }, barAmount);
+
+  return {
+    add: (newWidth) => {
+      let progressValue = parseFloat(progressBar.style.width) || 100.0;
+      let currentWidth = parseFloat(progressBar.style.width);
+      let updatedWidth = currentWidth + newWidth;
+      if (updatedWidth > 100) {
+        updatedWidth = 100;
+      }
+      progressBar.style.width = `${updatedWidth}%`;
+      progressBar.style.backgroundColor = 'green';
+    
+      if (progressValue <= threshold) {
+        progressBar.style.backgroundColor = 'red';
+      }
+    
+      if (progressValue <= 0) {
+        decreasingFlag = false;
+        alert(alertMessage);
+      } else {
+        decreasingFlag = true;
+      }
+    },
+    reset: () => {
+      decreasingFlag = true;
+      progressBar.style.width = `${resetValue}%`;
+      progressBar.style.backgroundColor = 'green';
+    }
+  }
+}
+
+//interval1 = energy, intervavl2 = hunger, interval3 = sleep, interval 4 = hp
+
+let interval2 = startProgressBar(progressBar2, true, 0.14,  20.0, "I'm <br>Feeling Hungry :(", 1000, 100);
+let eatButton = document.getElementById("eatButton");
+eatButton.addEventListener("click", () => {
+  interval2.add(20);
+});
+
+let interval3 = startProgressBar(progressBar3, true, 0.1, 20.0, "I'm <br>feeling sleepy zzz", 1000, 100);
+let sleepButton = document.getElementById("sleepButton");
+sleepButton.addEventListener("click", () => {
+  interval3.reset();
+});*/
+
 
 let health = 100;
 let healthBar = document.querySelector('#health');
@@ -54,7 +131,7 @@ let healthInterval = setInterval(() => {
       window.location.href = 'index.html';
     });
   }
-}, 7); //fungsi berjalan setiap detik
+}, 1000); //fungsi berjalan setiap detik
 
 heal.addEventListener('click', () =>{
   if(healCounter > nullHP){
@@ -148,7 +225,7 @@ let hungerInterval = setInterval(() => {
     hungerAlertShown = true;
     healthDecrement = true;
   }
-}, 7); //fungsi berjalan setiap detik
+}, 1000); //fungsi berjalan setiap detik
 
 eatBtn.addEventListener('click', () =>{
   hungerFlag = true;
@@ -202,73 +279,33 @@ sleepBtn.addEventListener('click', () =>{
   sleepBar.style.width = `${sleep}%`;
 });
 
-
-
-/*function startProgressBar(progressBar, decreasingFlag, decrementValue, threshold, alertMessage, barAmount, resetValue = 100) {
-  let interval = setInterval(() => {
-    let progressValue = parseFloat(progressBar.style.width) || 100.0;
-    if (decreasingFlag) {
-      progressValue -= decrementValue;
-      progressBar.style.width = `${progressValue}%`;
-    }
-
-    if (progressValue <= threshold) {
-      progressBar.style.backgroundColor = 'red';
-    }
-
-    if (progressValue <= 0) {
-      decreasingFlag = false;
-      alert(alertMessage);
-    }
-  }, barAmount);
-
-  return {
-    add: (newWidth) => {
-      let progressValue = parseFloat(progressBar.style.width) || 100.0;
-      let currentWidth = parseFloat(progressBar.style.width);
-      let updatedWidth = currentWidth + newWidth;
-      if (updatedWidth > 100) {
-        updatedWidth = 100;
-      }
-      progressBar.style.width = `${updatedWidth}%`;
-      progressBar.style.backgroundColor = 'green';
-    
-      if (progressValue <= threshold) {
-        progressBar.style.backgroundColor = 'red';
-      }
-    
-      if (progressValue <= 0) {
-        decreasingFlag = false;
-        alert(alertMessage);
-      } else {
-        decreasingFlag = true;
-      }
-    },
-    reset: () => {
-      decreasingFlag = true;
-      progressBar.style.width = `${resetValue}%`;
-      progressBar.style.backgroundColor = 'green';
-    }
-  }
+function changetoeat() {
+  const eatingImage = "Aset/sad.gif";
+  const intervalDuration = 3000; // 5 seconds
+  document.getElementById("object2").src = eatingImage;
+  setTimeout(() => {
+    document.getElementById("object2").src = "Aset/pentol/pentol-idle.gif";
+  }, intervalDuration);
 }
 
+function changetosleep() {
+  const eatingImage = "Aset/sad.gif";
+  const intervalDuration = 5000; // 5 seconds
+  document.getElementById("object2").src = eatingImage;
+  setTimeout(() => {
+    document.getElementById("object2").src = "Aset/pentol/pentol-idle.gif";
+  }, intervalDuration);
+}
 
-//interval1 = energy, intervavl2 = hunger, interval3 = sleep, interval 4 = hp
+function changetoobat() {
+  const eatingImage = "Aset/sad.gif";
+  const intervalDuration = 5000; // 5 seconds
+  document.getElementById("object2").src = eatingImage;
+  setTimeout(() => {
+    document.getElementById("object2").src = "Aset/pentol/pentol-idle.gif";
+  }, intervalDuration);
+}
 
-let interval2 = startProgressBar(progressBar2, true, 1,  20.0, "I'm Feeling Hungry :(", 1000);
-let eatButton = document.getElementById("eatButton");
-eatButton.addEventListener("click", () => {
-  interval2.add(20);
-});
-
-let interval3 = startProgressBar(progressBar3, true, 1 , 20.0, "i'm feeling ssleepy zzz", 1000, 100);
-let sleepButton = document.getElementById("sleepButton");
-sleepButton.addEventListener("click", () => {
-  interval3.reset();
-});*/
-
-var pentolIdle = document.getElementById("object2");
-pentolIdle.src = "Aset/pentol/pentol-idle.gif";
 
 //energy bar
 /*let interval1 = setInterval(() => {

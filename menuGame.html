@@ -16,8 +16,9 @@
     <audio id="myAudio" autoplay loop>
       <source src="Aset/bgm.mp3" type="audio/mpeg">
     </audio>   
-    <div class="text-center">
-      <h1><span id='playerName'></span></h1>
+    <div class="text-center row-md">
+      <h1 class="pixelFont" style="margin-top: 10px;"><span id='greeting'></span></h1>
+      <h1 class="pixelFont"><span id='playerName'></span></h1>
     </div>
       
       <div class="container-md text-center rounded-3" id="bar" >
@@ -30,7 +31,7 @@
               </div>
 
               <div class="col progress-bar" style="margin-top: 10px">
-                <img src="Aset/158420.png" width="40px" height="40px">
+                <img src="Aset/158420.png" width="40px" height="31px" style="margin-left: 10px">
                   <div class="p">
                     <div class="progress" id="fun"></div>
                   </div>
@@ -55,17 +56,20 @@
             <div id="objectbox">
               <img id="object1" src="Aset/hallway.jpeg">
               <div id="clock" class="hour"></div>
+              <div id="chatMessage">
+                <div><p id="pentolChat"></p></div>
+              </div>
               <img id="object2" src="">
             </div>
             
 
             <div id="buttonbox">
               <div class="row" style="margin-top: 40px">
-                <button type="button" class="col button" id="obatButton">Use Medicine (<span id="healCounter">10</span>)</button>
-                <button type="button" class="col button" id="playButton">Play</button>
+                <button type="button" class="col button" id="obatButton" onclick="changetoobat()">Use Medicine (<span id="healCounter">10</span>)</button>
+                <button type="button" class="col button" id="playButton" onclick="changetoplay()">Play</button>
                 <div class="w-100"></div>
-                <button type="button" class="col button" id="eatButton">Eat</button>
-                <button type="button" class="col button" onclick="changetosleep(1)" id="sleepButton">Sleep</button>
+                <button type="button" class="col button" id="eatButton" onclick="changetoeat()">Eat</button>
+                <button type="button" class="col button" id="sleepButton" onclick="changetosleep()">Sleep</button>
               </div>
              
 
@@ -75,17 +79,11 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!--<script src="script.js"></script>-->
+    <script src="script.js"></script>
     <script src="scriptTime1.js"></script>
     <script>
-       $(document).ready(function() {
-    var scriptFile = localStorage.getItem('scriptFile');
-    if (scriptFile) {
-      $.getScript(scriptFile);
-    }
-    var playerName = localStorage.getItem('playerName');
-    $('#playerName').text(playerName);
-  });
+      var playerName = localStorage.getItem('playerName');
+      $('#playerName').text(playerName);
     </script>
   </body>
 </html>
