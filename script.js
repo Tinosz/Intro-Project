@@ -21,19 +21,40 @@ let healthInterval = setInterval(() => {
     healthBar.style.width = `${health}%`;
   }
 
-  if(health <= 20){
+  if(health <= 20 && !healthAlertShown){
+    healthAlertShown = true;
     alert("I'm feeling sick");
     healthBar.style.backgroundColor = 'red';
   }else{
     hungerBar.style.backgroundColor = 'green';
   }
 
-  if(health<=0 && !healthAlertShown){
+  if(health<=0){
     alert("Bye Bye :(");
     clearInterval(healthInterval);
     gameOver = true;
+    const gameOverOverlay = document.createElement('div');
+    gameOverOverlay.style.position = 'absolute';
+    gameOverOverlay.style.top = 0;
+    gameOverOverlay.style.left = 0;
+    gameOverOverlay.style.width = '100%';
+    gameOverOverlay.style.height = '100%';
+    gameOverOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    gameOverOverlay.style.display = 'flex';
+    gameOverOverlay.style.alignItems = 'center';
+    gameOverOverlay.style.justifyContent = 'center';
+    const gameOverText = document.createElement('p');
+    gameOverText.style.color = 'white';
+    gameOverText.style.fontSize = '3em';
+    gameOverText.style.textAlign = 'center';
+    gameOverText.textContent = 'Game Over!';
+    gameOverOverlay.appendChild(gameOverText);
+    document.body.appendChild(gameOverOverlay);
+    document.body.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
   }
-}, 1000); //fungsi berjalan setiap detik
+}, 7); //fungsi berjalan setiap detik
 
 heal.addEventListener('click', () =>{
   if(healCounter > nullHP){
@@ -48,9 +69,6 @@ heal.addEventListener('click', () =>{
       health = 100;
     }
     healthBar.style.width = `${health}%`;
-  }
-  if(healCounter <= nullHP){
-    heal.disabled = true;
   }
 });
 
@@ -130,7 +148,7 @@ let hungerInterval = setInterval(() => {
     hungerAlertShown = true;
     healthDecrement = true;
   }
-}, 1000); //fungsi berjalan setiap detik
+}, 7); //fungsi berjalan setiap detik
 
 eatBtn.addEventListener('click', () =>{
   hungerFlag = true;
